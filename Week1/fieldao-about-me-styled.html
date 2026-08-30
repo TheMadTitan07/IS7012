@@ -3,8 +3,10 @@
 <html>
     <head>
         <style type="text/css">
-            .main-item{
-                font-weight:bold;
+            .main-item :is(span) {
+                font-weight: bold;
+                font-size: 20px;
+                font-style:italic;
             }
 
             .sub-item{
@@ -12,29 +14,31 @@
                 padding-left:10px;
             }
 
-            h2.pgm{
-                color:crimson;
-                font-weight:bold;
-            }
-
             h2.sections{
+                display:flex;
+                align-items:center;
                 background-color:black;
                 color:crimson;
                 border-radius:5px;
+                padding: 20px 5px;
             }
 
             img.headshot{
                 border-radius:30px;
-                border:7px solid crimson;
+                border:7px solid black;
             }
 
             div.main-hdr {
                 margin: 0 auto;
                 text-align: center;
+                background-color: crimson;
+                color: white;
+                padding:20px;
             }
 
             div.main-hdr h1{
                 font-family: 'Lucida Handwriting';
+                color: black;
             }
 
             div.main-hdr h2{
@@ -43,6 +47,10 @@
 
             table.tbl-schedule :is(tr,th,td){
                 border: 1px solid black;
+            }
+
+            table.tbl-interests :is(td){
+                padding-right:15px;
             }
 
             tr.sched-hdr{
@@ -59,7 +67,7 @@
             <h1>Aaron Charles Wayne Fields</h1>
             <h2 class="pgm">Master of Science in Information Systems</h2>
 
-            <img class="headshot" src="https://i.imgur.com/eo8L2EG.jpg" alt="Picture of Aaron Fields" height="350" />
+            <img class="headshot" src="images/Fields_Headshot.jpg" alt="Picture of Aaron Fields" height="350" />
         </div>
 
         <p>
@@ -114,44 +122,44 @@
         <h2 class="sections">Hobbies & Interests</h2>
         <hr />
         <ul>
-            <li>Movies
+            <li class="main-item"><span>Movies</span>
                 <ul class="sub-item">
-                    <li>Membership to <a href="https://www.cinemark.com" target="_blank">Cinemark's</a>Movie Rewards Program</li>
+                    <li>Membership to <a href="https://www.cinemark.com" target="_blank">Cinemark's</a> Movie Rewards Program</li>
                     <li>See 25+ movies in theatres each year</li>
                     <li><b>Favorite movie:</b> <i><a href="https://www.imdb.com/title/tt0162661/" target="_blank">Sleepy Hollow</a></i> (1999)
-                    <table>
+                    <table class="tbl-interests">
                         <tbody>
                             <tr>
-                                <td><img src="https://m.media-amazon.com/images/M/MV5BYWIwMTIxZTQtNDZhNS00ZDZlLTg5MTEtOTNkMmNjOGUzMTA1XkEyXkFqcGc@._V1_.jpg" alt="Sleepy Hollow Poster" height="200" /></td>
+                                <td><img src="images/SleepyHollowMoviePoster.jpg" alt="Sleepy Hollow Poster" height="200" /></td>
                             </tr>
                         </tbody>
                     </table>
                     </li>
                 </ul>
             </li>
-            <li class="main-item">Collectibles
+            <li class="main-item"><span>Collectibles</span>
             <ul class="sub-item">
                 <li>1:1 scale prop replicas</li>
                 <li>1:6 scale figures</li>
                 <li>6" figures</li>
                 <li>Autographs
-                <table>
+                <table class="tbl-interests">
                     <tbody>
                         <tr>
-                            <td><img src="https://i.imgur.com/rpMz888.png" alt="Johnny Depp Autograph" height="200" /></td>
-                            <td><img src="https://i.imgur.com/qcrXFvH.png" alt="Breaking Bad Cast Autograph" height="200" /></td>
-                            <td><img src="https://i.imgur.com/pUpK6yW.jpg" alt="Hot Toys Cad Bane" height="200" /></td>
-                            <td><img src="https://i.imgur.com/9mTDUfc.jpg" alt="Hot Toys Thanos" height="200" /></td>
+                            <td><img src="images/Depp_Auto.png" alt="Johnny Depp Autograph" height="200" /></td>
+                            <td><img src="images/BB_Auto.png" alt="Breaking Bad Cast Autograph" height="200" /></td>
+                            <td><img src="images/CadBane.jpg" alt="Hot Toys Cad Bane" height="200" /></td>
+                            <td><img src="images/Thanos.jpg" alt="Hot Toys Thanos" height="200" /></td>
                         </tr>
                     </tbody>
                 </table>
                 </li>
             </ul>
             </li>
-            <li class="main-item">Halloween
+            <li class="main-item"><span>Halloween</span>
                 <ul class="sub-item">
                     <li><a href="https://www.universalorlando.com/hhn/en/us">Universal Orlando Resort's Halloween Horror Nights</a>
-                    <table>
+                    <table class="tbl-interests">
                         <tbody>
                             <tr>
                                 <td><img src="https://i.imgur.com/5BUGjLK.jpg" alt="Halloween Horror Nights 35 logo" height="200" /></td>
@@ -164,21 +172,21 @@
                     <ul>
                         <li>
                             <a href="https://www.sandylandacres.com/">Sandyland Acres Haunted Hayride</a>
-                            <table>
+                            <table class="tbl-interests">
                                 <tbody>
                                     <tr>
-                                        <td><img src="https://i.imgur.com/KDVNq37.jpg" alt="Sandlyland Acres Logo" height="200" /></td>
-                                        <td><img src="https://i.imgur.com/RNxBi2r.jpg" alt="Sandyland Acres Jason Voorhees" height="200" /></td>
+                                        <td><img src="images/Sandyland.jpg" alt="Sandlyland Acres Logo" height="200" /></td>
+                                        <td><img src="images/Sandyland_F13.jpg" alt="Sandyland Acres Jason Voorhees" height="200" /></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </li>
                         <li>
                             <a href="https://biwaterfarm.com/autumnfestadventures/">Bi-Water Farm AutumnFest</a>
-                            <table>
+                            <table class="tbl-interests">
                                 <tbody>
                                     <tr>
-                                        <td><img src="https://i.imgur.com/IjhSObD.jpg" alt="Bi-Water farm logo" height="200" /></td>
+                                        <td><img src="images/BiWaterFarm.png" alt="Bi-Water farm logo" height="200" /></td>
                                     </tr>
                                 </tbody>
                             </table>
