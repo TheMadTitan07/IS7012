@@ -1,0 +1,103 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: linear-gradient( to right, rgba(255,255,255,0) 0%, /* fully visible image on the left */
+    rgba(255,255,255,0.85) 25%, /* heavy white fade across 60% */
+    rgba(255,255,255,1) 100% /* pure white on the right */
+    ), url(/images/FatCats_Office.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+#company-logo {
+    background-image: linear-gradient(to right, #fe9a10 0%, #6cbffb 100%);
+}
+
+.navbar, .navbar-brand,.nav-link,.card-header {
+    background-color: #217cfd !important;
+    color: white !important;
+}
+
+.card-header{
+    font-weight:bold;
+}
+
+/*Index styling*/
+
+#testimonials, #applicationProcess {
+    margin-bottom: 45px;
+}
+
+#applicationProcess{
+    margin-bottom: 100px;
+}
+
+.section-hdr{
+    border-radius: 10px;
+    padding: 20px 0px;
+}
+
+.list-group .list-group-item {
+    border-top: 1px solid #217cfd !important;
+    border-right: 5px solid #217cfd !important;
+    
+    border-left: 0 !important;
+    border-bottom: 0 !important;
+    border-radius: 5px;
+}
+
+/*Our Team Styling*/
+.team-cards{
+    margin-bottom:75px;
+}
+
+.bg-card-footer {
+    background-color: #217cfd;
+}
+
+.btn-email, .section-hdr {
+    background-color: #fe9a10!important;
+    color: white;
+    font-weight:bold;
+}
+
+.team-img{
+    height:430px;
+    overflow: hidden;
+}
+
+.team-img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+

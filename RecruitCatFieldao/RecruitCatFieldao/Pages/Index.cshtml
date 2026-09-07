@@ -1,0 +1,108 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+
+    int currentTime = DateTime.Now.Hour;
+    string timeOfDay = currentTime < 12 ? "Morning" : currentTime < 18 ? "Afternoon" : "Evening";
+
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Good @timeOfDay!</h1>
+    <h2>Welcome to Fat Cat's Recruiting Services!</h2>
+</div>
+
+<div class="text-center">
+    <p>Do <strong>you</strong> represent a business looking for a partner to assist your HR department with recruiting services? You've come to the right place!
+        <br />
+       Since 2011, <strong><em>Fat Cat's Recruiting Services</em></strong> has helped businesses just like your hire <strong>qualified, reliable individuals</strong>
+       <br/>
+       We handle all the hiring so you can focus on your business.
+    </p>
+</div>
+
+<section id="servicesRendered" class="mb-4">
+
+    <div class="d-flex flex-column align-items-center">
+        <h5>Services we render:</h5>
+        <ul class="list-group w-25">
+            <li class="list-group-item rounded-end">Talent Sourcing</li>
+            <li class="list-group-item rounded-end">Candidate Screening</li>
+            <li class="list-group-item rounded-end">Salary Negotiation</li>
+        </ul>
+    </div>
+
+    
+    <div class="d-flex flex-column align-items-center">
+        <h5>Industries we service:</h5>
+        <ul class="list-group w-25">
+            <li class="list-group-item rounded-end">IT</li>
+            <li class="list-group-item rounded-end">Business Analytics</li>
+            <li class="list-group-item rounded-end">Data Science</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="testimonials">
+
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                  <div class="text-center section-hdr">
+                      <h4>Need reassurance? See what our customers are saying:</h4>
+                  </div>
+            </div>
+        </div>
+        <div class="row g-3 align-items-stretch">
+            <div class="col-md-4 d-flex">
+                  <div class="card flex-fill">
+                      <div class="card-header">
+                        Highly Recommended!
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">The Fat Cat team is amazing!</h5>
+                        <p class="card-text">"We came to Fat Cat's when we were looking for a full stack web developer to migrate our site from ASP.NET Web Forms to ASP.NET Core. 
+                            The candidates they provided us were, as promised, quality and the individual we selected as performed above expectations!"
+                        </p>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                  <div class="card flex-fill">
+                      <div class="card-header">
+                        World Class Recruiting Services!
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Top tier candidate quality</h5>
+                        <p class="card-text">"Fat Cat's helped up screen candidates for our open Network Engineer. The quality of the candidates was so good, it made it difficult to select just one. We will definitely use Fat Cat's
+                            again for our next hiring need"
+                        </p>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                  <div class="card flex-fill">
+                      <div class="card-header">
+                        Exceptional Service!
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Helped negotiate candidate salaries</h5>
+                        <p class="card-text">"After helping us source talent for our Business Intelligence Analyst position, when it came to salary negotiation, Fat Cat's made sure both us and our potential new hire
+                            left the negotiating table happy"
+                        </p>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="applicationProcess">
+
+    <div class="container text-center section-hdr">
+        <h4>Ready to have candidates apply for your positions? <a href="#">Get started today!</a></h4>
+    </div>
+
+</section>
