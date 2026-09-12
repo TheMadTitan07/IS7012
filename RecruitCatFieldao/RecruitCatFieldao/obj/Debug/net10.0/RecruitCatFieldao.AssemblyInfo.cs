@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecruitCatFieldao")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c3bdc3ab9804356fe54a3cc6075efd11495a5b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b82f2f90ad20a04d09b74191078e63b076e35c36")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecruitCatFieldao")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecruitCatFieldao")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
