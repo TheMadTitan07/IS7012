@@ -1,0 +1,66 @@
+@page
+@model BankAccounts.Pages.AccountHolderPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].SocialSecurityNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder[0].BankAccounts)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AccountHolder) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.SocialSecurityNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BankAccounts)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AccountHolderId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AccountHolderId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AccountHolderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

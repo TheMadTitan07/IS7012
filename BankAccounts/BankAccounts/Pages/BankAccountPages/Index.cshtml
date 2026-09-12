@@ -1,0 +1,72 @@
+@page
+@model BankAccounts.Pages.BankAccountPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].RoutingNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].CurrentBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].AccountOpenedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].AccountHolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount[0].AccountHolderId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BankAccount) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.RoutingNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CurrentBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AccountOpenedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AccountHolder)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AccountHolderId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BankAccountId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BankAccountId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BankAccountId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

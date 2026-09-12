@@ -1,0 +1,55 @@
+@page
+@model BankAccounts.Pages.AccountHolderPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AccountHolder</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.MiddleName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.MiddleName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.DateOfBirth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.DateOfBirth)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.SocialSecurityNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.SocialSecurityNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder.BankAccounts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder.BankAccounts)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AccountHolder.AccountHolderId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
