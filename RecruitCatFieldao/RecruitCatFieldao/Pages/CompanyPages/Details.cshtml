@@ -1,0 +1,91 @@
+@page
+@model RecruitCatFieldao.Pages.CompanyPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.IsActivelyRecruiting)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.IsActivelyRecruiting)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.CurrentlyRecruitingPosition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.CurrentlyRecruitingPosition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.MinimumSalary)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.MinimumSalary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.MaximumSalary)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.MaximumSalary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Candidates)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Candidates)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Industry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Industry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.IndustryId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.IndustryId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.JobTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.JobTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.JobTitleId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.JobTitleId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Company.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

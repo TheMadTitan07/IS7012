@@ -1,0 +1,120 @@
+@page
+@model RecruitCatFieldao.Pages.CandidatePages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].IsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].CurrentSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].TargetSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].CompanyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].JobTitleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].IndustryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candidate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CurrentSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.TargetSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.JobTitleId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Industry)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IndustryId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
