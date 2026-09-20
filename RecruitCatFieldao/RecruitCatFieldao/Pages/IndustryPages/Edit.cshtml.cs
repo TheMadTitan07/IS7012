@@ -37,6 +37,9 @@ public class EditModel : PageModel
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        ModelState.Remove("Industry.Candidates");
+        ModelState.Remove("Industry.Companies");
+
         if (!ModelState.IsValid)
         {
             return Page();

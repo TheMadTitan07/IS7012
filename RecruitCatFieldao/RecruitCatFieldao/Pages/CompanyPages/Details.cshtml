@@ -2,13 +2,12 @@
 @model RecruitCatFieldao.Pages.CompanyPages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Company Details";
 }
 
-<h1>Details</h1>
+<h1>Details for @Model.Company.Name</h1>
 
 <div>
-    <h4>Company</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -45,47 +44,65 @@
             @Html.DisplayNameFor(model => model.Company.MinimumSalary)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.MinimumSalary)
+            @(Model.Company.MinimumSalary.ToString("C2"))
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Company.MaximumSalary)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.MaximumSalary)
+            @(Model.Company.MaximumSalary.ToString("C2"))
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Company.Candidates)
+            @Html.DisplayNameFor(model => model.Company.Industry.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.Candidates)
+            @Html.DisplayFor(model => model.Company.Industry.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Company.Industry)
+            @Html.DisplayNameFor(model => model.Company.JobTitle.Title)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.Industry)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Company.IndustryId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.IndustryId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Company.JobTitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.JobTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Company.JobTitleId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.JobTitleId)
+            @Html.DisplayFor(model => model.Company.JobTitle.Title)
         </dd>
     </dl>
 </div>
+@if (Model.Company.Candidates.Any())
+{
+    <h4>Candidates for @Model.Company.Name:</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].FullName) </th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].PhoneNumber) </th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].EmailAddress) </th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].StartDate) </th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].TargetSalary) </th>
+                <th>@* placeholder for details hyperlink *@</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Company.Candidates)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                    <td>@item.TargetSalary.ToString("C2")</td>
+                    <td>
+                        <a asp-page="/CandidatePages/Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <strong>@Model.Company.Candidates.Count Candidate(s) Found</strong>
+}
+else
+{
+    <div class="alert alert-warning">No candidates found for @Model.Company.Name</div>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Company.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Back to Companies</a>
 </div>

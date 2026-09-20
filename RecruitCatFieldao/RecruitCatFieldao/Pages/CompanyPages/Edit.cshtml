@@ -2,12 +2,11 @@
 @model RecruitCatFieldao.Pages.CompanyPages.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modify Company";
 }
 
-<h1>Edit</h1>
+<h1>Modify @Model.Company.Name</h1>
 
-<h4>Company</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -50,39 +49,24 @@
                 <span asp-validation-for="Company.MaximumSalary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company.Candidates" class="control-label"></label>
-                <input asp-for="Company.Candidates" class="form-control" />
-                <span asp-validation-for="Company.Candidates" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Company.Industry" class="control-label"></label>
-                <input asp-for="Company.Industry" class="form-control" />
-                <span asp-validation-for="Company.Industry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Company.IndustryId" class="control-label"></label>
-                <input asp-for="Company.IndustryId" class="form-control" />
+                <select asp-for="Company.IndustryId" asp-items="ViewBag.IndustryId" class="form-control"></select>
                 <span asp-validation-for="Company.IndustryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company.JobTitle" class="control-label"></label>
-                <input asp-for="Company.JobTitle" class="form-control" />
-                <span asp-validation-for="Company.JobTitle" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Company.JobTitleId" class="control-label"></label>
-                <input asp-for="Company.JobTitleId" class="form-control" />
+                <select asp-for="Company.JobTitleId" asp-items="ViewBag.JobTitleID" class="form-control"></select>
                 <span asp-validation-for="Company.JobTitleId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-4 mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
+<div style="margin-bottom:60px;">
+    <a asp-page="./Index">Back to Companies</a>
 </div>
 
 @section Scripts {

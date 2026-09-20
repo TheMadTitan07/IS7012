@@ -22,7 +22,7 @@ public class DetailsModel : PageModel
             return NotFound();
         }
 
-        var industry = await _context.Industry.FirstOrDefaultAsync(m => m.Id == id);
+        var industry = await _context.Industry.Include(i => i.Companies).Include(i => i.Candidates).FirstOrDefaultAsync(m => m.Id == id);
         if (industry is null)
         {
             return NotFound();

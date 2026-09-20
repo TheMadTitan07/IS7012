@@ -18,6 +18,6 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Industry = await _context.Industry.ToListAsync();
+        Industry = await _context.Industry.Include(i => i.Candidates).Include(i => i.Companies).ToListAsync();
     }
 }

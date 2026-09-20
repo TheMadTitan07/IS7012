@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecruitCatFieldao.Models;
 
@@ -16,6 +17,18 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
+        ViewData["JobTitleId"] = new SelectList(
+        _context.JobTitle,
+        "Id",
+        "Title"
+        );
+
+        ViewData["IndustryId"] = new SelectList(
+        _context.Industry,
+        "Id",
+        "Name"
+        );
+
         return Page();
     }
 
@@ -25,6 +38,10 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        ModelState.Remove("Company.Candidates");
+        ModelState.Remove("Company.Industry");
+        ModelState.Remove("Company.JobTitle");
+
         if (!ModelState.IsValid)
         {
             return Page();

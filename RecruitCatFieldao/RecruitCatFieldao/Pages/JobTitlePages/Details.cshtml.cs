@@ -22,7 +22,7 @@ public class DetailsModel : PageModel
             return NotFound();
         }
 
-        var jobtitle = await _context.JobTitle.FirstOrDefaultAsync(m => m.Id == id);
+        var jobtitle = await _context.JobTitle.Include(j => j.Candidates).FirstOrDefaultAsync(m => m.Id == id);
         if (jobtitle is null)
         {
             return NotFound();

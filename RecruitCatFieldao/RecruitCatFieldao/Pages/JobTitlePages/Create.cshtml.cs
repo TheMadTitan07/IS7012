@@ -25,6 +25,8 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        ModelState.Remove("JobTitle.Candidates");
+
         if (!ModelState.IsValid)
         {
             return Page();

@@ -2,61 +2,34 @@
 @model RecruitCatFieldao.Pages.CandidatePages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Candidates";
 }
 
-<h1>Index</h1>
+<h1>All Candidates</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add a Candidate</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].MiddleName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].LastName)
+                @Html.DisplayNameFor(model => model.Candidate[0].FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].IsAvailable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].CurrentSalary)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].TargetSalary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].EmailAddress)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].Company)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].CompanyId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].JobTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].JobTitleId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].Industry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate[0].IndustryId)
             </th>
             <th></th>
         </tr>
@@ -65,49 +38,36 @@
 @foreach (var item in Model.Candidate) {
         <tr>
             <td>
-                @Html.DisplayFor(model => item.FirstName)
+                @Html.DisplayFor(model => item.FullName)
             </td>
             <td>
-                @Html.DisplayFor(model => item.MiddleName)
+                @if (item.IsAvailable)
+                {
+                    <span class="badge text-bg-success">Available</span>
+                }
+                else
+                {
+                    <span class="badge text-bg-secondary">Unavailable</span>
+                }
             </td>
             <td>
-                @Html.DisplayFor(model => item.LastName)
+                @item.TargetSalary.ToString("C2")
             </td>
             <td>
-                @Html.DisplayFor(model => item.IsAvailable)
+                    @if (string.IsNullOrEmpty(item.Company.Name))
+                    {
+                        <span class="badge text-bg-secondary">No Company</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => item.Company.Name)
+                    }
             </td>
             <td>
-                @Html.DisplayFor(model => item.CurrentSalary)
+                @Html.DisplayFor(model => item.JobTitle.Title)
             </td>
             <td>
-                @Html.DisplayFor(model => item.TargetSalary)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.EmailAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CompanyId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.JobTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.JobTitleId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Industry)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.IndustryId)
+                @Html.DisplayFor(model => item.Industry.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

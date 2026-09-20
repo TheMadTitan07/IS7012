@@ -18,6 +18,6 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        JobTitle = await _context.JobTitle.ToListAsync();
+        JobTitle = await _context.JobTitle.Include(j => j.Candidates).ToListAsync();
     }
 }

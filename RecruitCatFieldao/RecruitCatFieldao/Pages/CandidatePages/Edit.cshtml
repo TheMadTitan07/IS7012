@@ -2,12 +2,11 @@
 @model RecruitCatFieldao.Pages.CandidatePages.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modify Candidate";
 }
 
-<h1>Edit</h1>
+<h1>Modify @Model.Candidate.FullName</h1>
 
-<h4>Candidate</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -60,44 +59,29 @@
                 <span asp-validation-for="Candidate.EmailAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Candidate.Company" class="control-label"></label>
-                <input asp-for="Candidate.Company" class="form-control" />
-                <span asp-validation-for="Candidate.Company" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Candidate.CompanyId" class="control-label"></label>
-                <input asp-for="Candidate.CompanyId" class="form-control" />
+                <label asp-for="Candidate.Company.Name" class="control-label"></label>
+                <select asp-for="Candidate.CompanyId" asp-items="ViewBag.CompanyId" class="form-control"></select>
                 <span asp-validation-for="Candidate.CompanyId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Candidate.JobTitle" class="control-label"></label>
-                <input asp-for="Candidate.JobTitle" class="form-control" />
-                <span asp-validation-for="Candidate.JobTitle" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Candidate.JobTitleId" class="control-label"></label>
-                <input asp-for="Candidate.JobTitleId" class="form-control" />
+                <label asp-for="Candidate.JobTitle.Title" class="control-label"></label>
+                <select asp-for="Candidate.JobTitleId" asp-items="ViewBag.JobTitleId" class="form-control"></select>
                 <span asp-validation-for="Candidate.JobTitleId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Candidate.Industry" class="control-label"></label>
-                <input asp-for="Candidate.Industry" class="form-control" />
-                <span asp-validation-for="Candidate.Industry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Candidate.IndustryId" class="control-label"></label>
-                <input asp-for="Candidate.IndustryId" class="form-control" />
+                <label asp-for="Candidate.Industry.Name" class="control-label"></label>
+                <select asp-for="Candidate.IndustryId" asp-items="ViewBag.IndustryId" class="form-control"></select>
                 <span asp-validation-for="Candidate.IndustryId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-4 mb-5">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
+<div style="margin-bottom:60px;">
+    <a asp-page="./Index">Back to Candidates</a>
 </div>
 
 @section Scripts {
