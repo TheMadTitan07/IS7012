@@ -24,7 +24,7 @@ public class EditModel : PageModel
             return NotFound();
         }
 
-        var accountholder = await _context.AccountHolder.FirstOrDefaultAsync(m => m.AccountHolderId == id);
+        var accountholder = await _context.AccountHolder.FirstOrDefaultAsync(m => m.Id == id);
         if (accountholder is null)
         {
             return NotFound();
@@ -50,7 +50,7 @@ public class EditModel : PageModel
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!AccountHolderExists(AccountHolder.AccountHolderId))
+            if (!AccountHolderExists(AccountHolder.Id))
             {
                 return NotFound();
             }
@@ -63,8 +63,8 @@ public class EditModel : PageModel
         return RedirectToPage("./Index");
     }
 
-    private bool AccountHolderExists(int accountholderid)
+    private bool AccountHolderExists(int id)
     {
-        return _context.AccountHolder.Any(e => e.AccountHolderId == accountholderid);
+        return _context.AccountHolder.Any(e => e.Id == id);
     }
 }

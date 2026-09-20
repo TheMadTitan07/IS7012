@@ -2,13 +2,12 @@
 @model BankAccounts.Pages.AccountHolderPages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Account Holder Details";
 }
 
-<h1>Details</h1>
+<h1>Account Holder Details</h1>
 
 <div>
-    <h4>AccountHolder</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -41,15 +40,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AccountHolder.SocialSecurityNumber)
         </dd>
-        <dt class = "col-sm-2">
+@*         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.AccountHolder.BankAccounts)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AccountHolder.BankAccounts)
-        </dd>
+        </dd> *@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.AccountHolder.AccountHolderId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.AccountHolder.Id">Edit</a> |
+    <a asp-page="./Index">Back to Account Holders</a>
 </div>

@@ -2,13 +2,13 @@
 @model BankAccounts.Pages.BankAccountPages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bank Accounts";
 }
 
-<h1>Index</h1>
+<h1>Bank Accounts</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add a Bank Account</a>
 </p>
 <table class="table">
     <thead>
@@ -23,16 +23,13 @@
                 @Html.DisplayNameFor(model => model.BankAccount[0].CurrentBalance)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BankAccount[0].AccountName)
+                @Html.DisplayNameFor(model => model.BankAccount[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BankAccount[0].AccountOpenedDate)
+                @Html.DisplayNameFor(model => model.BankAccount[0].OpenedDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BankAccount[0].AccountHolder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BankAccount[0].AccountHolderId)
             </th>
             <th></th>
         </tr>
@@ -50,21 +47,18 @@
                 @Html.DisplayFor(model => item.CurrentBalance)
             </td>
             <td>
-                @Html.DisplayFor(model => item.AccountName)
+                @Html.DisplayFor(model => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(model => item.AccountOpenedDate)
+                @Html.DisplayFor(model => item.OpenedDate)
             </td>
             <td>
-                @Html.DisplayFor(model => item.AccountHolder)
+                @Html.DisplayFor(model => item.AccountHolder.FullName)
             </td>
             <td>
-                @Html.DisplayFor(model => item.AccountHolderId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.BankAccountId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.BankAccountId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.BankAccountId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

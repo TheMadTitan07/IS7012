@@ -2,13 +2,13 @@
 @model BankAccounts.Pages.AccountHolderPages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bank Account Holders";
 }
 
-<h1>Index</h1>
+<h1>Bank Account Holders</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add Account Holder</a>
 </p>
 <table class="table">
     <thead>
@@ -27,9 +27,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountHolder[0].SocialSecurityNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountHolder[0].BankAccounts)
             </th>
             <th></th>
         </tr>
@@ -53,12 +50,9 @@
                 @Html.DisplayFor(model => item.SocialSecurityNumber)
             </td>
             <td>
-                @Html.DisplayFor(model => item.BankAccounts)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.AccountHolderId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AccountHolderId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AccountHolderId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

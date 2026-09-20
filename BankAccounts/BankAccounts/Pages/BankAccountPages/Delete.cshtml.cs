@@ -17,14 +17,14 @@ public class DeleteModel : PageModel
     [BindProperty]
     public BankAccount BankAccount { get; set; } = default!;
 
-    public async Task<IActionResult> OnGetAsync(int? bankaccountid)
+    public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (bankaccountid is null)
+        if (id is null)
         {
             return NotFound();
         }
 
-        var bankaccount = await _context.BankAccount.FirstOrDefaultAsync(m => m.BankAccountId == bankaccountid);
+        var bankaccount = await _context.BankAccount.Include(b => b.AccountHolder).FirstOrDefaultAsync(m => m.Id == id);
         if (bankaccount is null)
         {
             return NotFound();
@@ -37,14 +37,14 @@ public class DeleteModel : PageModel
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync(int? bankaccountid)
+    public async Task<IActionResult> OnPostAsync(int? id)
     {
-        if (bankaccountid is null)
+        if (id is null)
         {
             return NotFound();
         }
 
-        var bankaccount = await _context.BankAccount.FindAsync(bankaccountid);
+        var bankaccount = await _context.BankAccount.FindAsync(id);
         if (bankaccount != null)
         {
             BankAccount = bankaccount;

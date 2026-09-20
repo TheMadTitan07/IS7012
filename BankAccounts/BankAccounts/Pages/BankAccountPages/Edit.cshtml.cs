@@ -1,7 +1,8 @@
+using BankAccounts.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankAccounts.Models;
 
 namespace BankAccounts.Pages.BankAccountPages;
 
@@ -17,19 +18,26 @@ public class EditModel : PageModel
     [BindProperty]
     public BankAccount BankAccount { get; set; } = default!;
 
-    public async Task<IActionResult> OnGetAsync(int? bankaccountid)
+    public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (bankaccountid is null)
+        if (id is null)
         {
             return NotFound();
         }
 
-        var bankaccount = await _context.BankAccount.FirstOrDefaultAsync(m => m.BankAccountId == bankaccountid);
+        var bankaccount = await _context.BankAccount.FirstOrDefaultAsync(m => m.Id == id);
         if (bankaccount is null)
         {
             return NotFound();
         }
         BankAccount = bankaccount;
+
+        ViewData["AccountHolderId"] = new SelectList(
+            _context.AccountHolder,
+            "Id",
+            "FullName"
+            );
+
         return Page();
     }
 
@@ -37,6 +45,8 @@ public class EditModel : PageModel
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        ModelState.Remove("BankAccount.AccountHolder");
+
         if (!ModelState.IsValid)
         {
             return Page();
@@ -50,7 +60,7 @@ public class EditModel : PageModel
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!BankAccountExists(BankAccount.BankAccountId))
+            if (!BankAccountExists(BankAccount.Id))
             {
                 return NotFound();
             }
@@ -63,8 +73,8 @@ public class EditModel : PageModel
         return RedirectToPage("./Index");
     }
 
-    private bool BankAccountExists(int bankaccountid)
+    private bool BankAccountExists(int id)
     {
-        return _context.BankAccount.Any(e => e.BankAccountId == bankaccountid);
+        return _context.BankAccount.Any(e => e.Id == id);
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BankAccounts.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BankAccounts.Pages.BankAccountPages;
 
@@ -16,6 +17,13 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
+
+        ViewData["AccountHolderId"] = new SelectList(
+            _context.AccountHolder,
+            "Id",
+            "FullName"
+            );
+
         return Page();
     }
 
@@ -25,6 +33,8 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        ModelState.Remove("BankAccount.AccountHolder");
+
         if (!ModelState.IsValid)
         {
             return Page();
