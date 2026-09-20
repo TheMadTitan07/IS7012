@@ -18,6 +18,6 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        AccountHolder = await _context.AccountHolder.ToListAsync();
+        AccountHolder = await _context.AccountHolder.Include(a => a.BankAccounts).ToListAsync();
     }
 }

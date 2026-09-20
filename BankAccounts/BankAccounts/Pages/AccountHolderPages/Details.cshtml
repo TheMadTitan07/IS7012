@@ -40,14 +40,45 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AccountHolder.SocialSecurityNumber)
         </dd>
-@*         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountHolder.BankAccounts)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AccountHolder.BankAccounts)
-        </dd> *@
     </dl>
 </div>
+@if (Model.AccountHolder.BankAccounts.Any())
+{
+    <div>
+        <h4>Accounts for @Model.AccountHolder.FullName:</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].Name) </th>
+                    <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].AccountNumber) </th>
+                    <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].RoutingNumber) </th>
+                    <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].OpenedDate) </th>
+                    <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].CurrentBalance) </th>
+                    <th>@* placeholder for details hyperlink *@</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AccountHolder.BankAccounts){
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RoutingNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OpenedDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CurrentBalance)</td>
+                        <td>
+                            <a asp-page="/BankAccountPages/Details" asp-route-id="@item.AccountHolderId">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <strong>@Model.AccountHolder.BankAccounts.Count Accounts Found</strong>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">No Bank Accounts found for @Model.AccountHolder.FullName</div>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.AccountHolder.Id">Edit</a> |
     <a asp-page="./Index">Back to Account Holders</a>
