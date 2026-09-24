@@ -1,0 +1,67 @@
+@page
+@model Movies.Pages.MoviePages.SearchModel
+
+@{
+    ViewData["Title"] = "Search For Movies";
+}
+
+<h1>Search Movies</h1>
+
+<div class="row">
+    <div class="col">
+        <form action="" method="get" class="form-inline">
+            <input asp-for="Query" class="form-control mr-sm-2 mb-sm-2" placeholder="Enter Movie Title..." />
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+
+@if (Model.SearchCompleted)
+{
+    if (Model.Movie.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].ReleaseYear)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie[0].BoxOfficeReceipts)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.Movie)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.ReleaseYear)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.BoxOfficeReceipts)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info">
+                    No movies match your movie title <strong>@Model.Query</strong>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
