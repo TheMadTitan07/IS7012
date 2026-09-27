@@ -1,0 +1,54 @@
+@page
+@model MyMediaShelf.Pages.CollectionItemPages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CollectionItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CollectionItem.CollectionId" class="control-label">Collection</label>
+                <select asp-for="CollectionItem.CollectionId" asp-items="ViewBag.CollectionId" class="form-control"></select>
+                <span asp-validation-for="CollectionItem.CollectionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionItem.MediaItemId" class="control-label">Media Item</label>
+                <select asp-for="CollectionItem.MediaItemId" asp-items="ViewBag.MediaItemId" class="form-control"></select>
+                <span asp-validation-for="CollectionItem.MediaItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionItem.DateAdded" class="control-label"></label>
+                <input asp-for="CollectionItem.DateAdded" class="form-control" />
+                <span asp-validation-for="CollectionItem.DateAdded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionItem.IsLoaned" class="control-label"></label>
+                <input asp-for="CollectionItem.IsLoaned" class="form-check-input" />
+                <span asp-validation-for="CollectionItem.IsLoaned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionItem.LoanedDate" class="control-label"></label>
+                <input asp-for="CollectionItem.LoanedDate" class="form-control" />
+                <span asp-validation-for="CollectionItem.LoanedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
